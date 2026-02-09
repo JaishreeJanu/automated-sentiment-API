@@ -4,3 +4,5 @@ mlflow
 dvc
 fastapi
 uvicorn
+streamlit
+requests
