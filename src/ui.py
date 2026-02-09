@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import os
+import logging
 
 # 1. Page Config
 st.set_page_config(page_title="Sentiment Analyzer", page_icon="🎬")
@@ -14,6 +15,7 @@ user_input = st.text_area("Review Text:", placeholder="The cinematography was br
 # 3. API URL (Use your Railway URL here!)
 # For local testing, use "http://localhost:8000/predict"
 API_URL = os.getenv("API_URL")
+logging.info(API_URL)
 
 if st.button("Analyze Sentiment"):
     if user_input.strip() == "":

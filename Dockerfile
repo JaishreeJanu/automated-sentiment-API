@@ -25,4 +25,4 @@ EXPOSE 8000
 
 # 8. Command to run the API
 # We use 0.0.0.0 so it's accessible outside the container
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn src.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
