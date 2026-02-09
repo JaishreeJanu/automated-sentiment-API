@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import joblib
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 # Define the request body schema
 class SentimentRequest(BaseModel):
@@ -14,6 +15,13 @@ class SentimentResponse(BaseModel):
 
 # Initialize FastAPI
 app = FastAPI(title="Automated Sentiment API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://automated-sentiment-api-production.up.railway.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load the model at startup to save latency
 MODEL_PATH = "models/model.pkl"
