@@ -11,7 +11,7 @@ def clean_text(text):
 
 def preprocess():
     # 1. Load data
-    df = pd.read_csv('data/IMDB Dataset.csv')
+    df = pd.read_csv('data/imdb_dataset.csv')
     
     # 2. Clean
     df['review'] = df['review'].apply(clean_text)
@@ -23,10 +23,10 @@ def preprocess():
     train, test = train_test_split(df, test_size=0.2, random_state=42)
     
     # 5. Save
-    os.makedirs('data/processed', exist_ok=True)
-    train.to_csv('data/processed/train.csv', index=False)
-    test.to_csv('data/processed/test.csv', index=False)
-    print("Preprocessing complete. Files saved in data/processed/")
+    os.makedirs('data/preprocessed', exist_ok=True)
+    train.to_csv('data/preprocessed/train.csv', index=False)
+    test.to_csv('data/preprocessed/test.csv', index=False)
+    print("Preprocessing complete. Files saved in data/preprocessed/")
 
 if __name__ == "__main__":
     preprocess()
