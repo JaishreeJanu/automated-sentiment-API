@@ -17,7 +17,7 @@ class SentimentResponse(BaseModel):
 app = FastAPI(title="Automated Sentiment API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://automated-sentiment-api-production.up.railway.app"],
+    allow_origins=["https://automated-sentiment-api-production.up.railway.app/predict"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
