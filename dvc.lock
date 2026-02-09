@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/imdb_dataset.csv
+      hash: md5
+      md5: 308443a50e5c993e7b8a1cdb95750026
+      size: 66212309
+    - path: src/preprocess.py
+      hash: md5
+      md5: bcfbb4c54d818577a46f2060ed213657
+      size: 992
+    outs:
+    - path: data/preprocessed
+      hash: md5
+      md5: 4357abf347d18fdef6b0f1b02742ae25.dir
+      size: 62418735
+      nfiles: 2
