@@ -23,8 +23,14 @@ if st.button("Analyze Sentiment"):
     else:
         with st.spinner("Analyzing..."):
             try:
+                headers = {"Content-Type": "application/json"}
                 # Send request to our FastAPI backend
-                response = requests.post(API_URL, json={"text": user_input})
+                response = requests.post(API_URL, json={"text": user_input}, headers=headers,
+                allow_redirects=True)
+
+                if response.status_code == 405:
+                    st.error(f"The API received a GET instead of a POST. Check your URL protocol (HTTPS) and slashes.")
+                
                 response.raise_for_status()
                 data = response.json()
 
