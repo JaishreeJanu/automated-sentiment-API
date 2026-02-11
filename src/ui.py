@@ -25,7 +25,7 @@ if st.button("Analyze Sentiment"):
             try:
                 headers = {"Content-Type": "application/json"}
                 # Send request to our FastAPI backend
-                response = requests.post(API_URL, json={"text": user_input}, headers=headers,
+                response = requests.post(f"{API_URL}/predict", json={"text": user_input}, headers=headers,
                 allow_redirects=True)
 
                 if response.status_code == 405:
